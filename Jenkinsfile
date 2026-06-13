@@ -10,7 +10,7 @@ pipeline {
 
         stage('Bluid') {
             steps {
-                echo 'npm run bluid'
+                echo 'npm run build'
             }
         }
 
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Deploy Stage'
                 sh '''
-                cp -r dist/* /var/www/html/
+                sudo cp -r dist/* /var/www/html/
                 sudo systemctl restart nginx
                 '''
             }
